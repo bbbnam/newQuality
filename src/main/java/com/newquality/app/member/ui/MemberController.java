@@ -4,8 +4,7 @@ import com.newquality.app.member.application.MemberService;
 import com.newquality.app.member.dto.MemberRequest;
 import com.newquality.app.member.dto.MemberResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
@@ -18,8 +17,14 @@ public class MemberController {
     }
 
     @PostMapping("/member")
-    public ResponseEntity createMember(MemberRequest memberRequest) {
+    public ResponseEntity createMember(@RequestBody MemberRequest memberRequest) {
         MemberResponse memberResponse = memberService.createMember(memberRequest);
         return ResponseEntity.created(URI.create("/member/" + memberResponse.getId())).build();
+    }
+
+    @GetMapping("/member/{id}")
+    public ResponseEntity selectMember(@PathVariable Long id) {
+        MemberResponse finded = memberService.findMember(id);
+        return ResponseEntity.ok().body(finded);
     }
 }
