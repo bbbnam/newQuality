@@ -1,0 +1,15 @@
+### member 생성
+POST http://localhost:8080/member
+Content-Type: application/json
+
+{
+  "email" :  "bbbnam@naver.com",
+  "password" : "12345",
+  "age" :  33,
+  "city" : "seoul",
+  "street" : "gangdong-ro",
+  "zipCode" : "134-123"
+}
+
+### member 조회
+GET http://localhost:8080/member/1
