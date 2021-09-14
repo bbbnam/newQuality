@@ -27,4 +27,17 @@ public class MemberController {
         MemberResponse finded = memberService.findMember(id);
         return ResponseEntity.ok().body(finded);
     }
+
+    @DeleteMapping("/member/{id}")
+    public ResponseEntity deleteMember(@PathVariable Long id) {
+        memberService.deleteMember(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/member/{id}")
+    public ResponseEntity updateMember(@PathVariable Long id,
+                                       @RequestBody MemberRequest memberRequest) {
+        MemberResponse memberResponse = memberService.updateMember(id, memberRequest);
+        return ResponseEntity.ok(memberResponse);
+    }
 }
