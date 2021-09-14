@@ -11,6 +11,9 @@ public class MemberResponse {
     private String street;
     private String zipCode;
 
+    public MemberResponse() {
+    }
+
     public MemberResponse(Long id, String email, Integer age, String city, String street, String zipCode) {
         this.id = id;
         this.email = email;
