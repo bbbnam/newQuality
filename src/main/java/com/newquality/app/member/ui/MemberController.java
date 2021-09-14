@@ -19,10 +19,10 @@ public class MemberController {
     @PostMapping("/member")
     public ResponseEntity createMember(@RequestBody MemberRequest memberRequest) {
         MemberResponse memberResponse = memberService.createMember(memberRequest);
-        return ResponseEntity.created(URI.create("/member/" + memberResponse.getId())).build();
+        return ResponseEntity.created(URI.create("/member/" + memberResponse.getId())).body(memberResponse);
     }
 
-    @GetMapping("/member/{id}")
+    @GetMapping(value = "/member/{id}")
     public ResponseEntity selectMember(@PathVariable Long id) {
         MemberResponse finded = memberService.findMember(id);
         return ResponseEntity.ok().body(finded);
