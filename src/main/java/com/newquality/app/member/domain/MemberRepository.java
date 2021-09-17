@@ -1,4 +1,4 @@
-package com.newquality.app.member.dao;
+package com.newquality.app.member.domain;
 
 import com.newquality.app.member.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
