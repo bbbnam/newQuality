@@ -1,11 +1,13 @@
 package com.newquality.app.member.domain;
 
 import lombok.Getter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
-@Entity
 @Getter
+@Entity
+@Where(clause = "is_deleted = 0")
 public class Member {
 
     @Id
@@ -18,6 +20,9 @@ public class Member {
     private Address address;
     private Integer age;
 
+    @Column(name="is_deleted")
+    private boolean deleted;
+
     protected Member() {
     }
 
@@ -26,5 +31,16 @@ public class Member {
         this.password = password;
         this.address = address;
         this.age = age;
+    }
+
+    public void delete() {
+        deleted = true;
+    }
+
+    public void update(Member member) {
+        this.email = member.email;
+        this.password = member.password;
+        this.address = member.address;
+        this.age = member.age;
     }
 }
