@@ -1,7 +1,7 @@
 package com.newquality.app.member.application;
 
-import com.newquality.app.member.domain.MemberRepository;
 import com.newquality.app.member.domain.Member;
+import com.newquality.app.member.domain.MemberRepository;
 import com.newquality.app.member.dto.MemberRequest;
 import com.newquality.app.member.dto.MemberResponse;
 import com.newquality.app.member.exception.NotFoundDataException;
